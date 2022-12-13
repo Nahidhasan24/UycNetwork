@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".wallet"
+    android:orientation="vertical"
+    android:background="@drawable/bgtow">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/beck"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="15dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/backone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="serif"
+            android:text="UYC Details"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="235dp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MY UYC"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:fontFamily="serif"
+        android:layout_gravity="center_horizontal"
+        />
+
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="180dp"
+       android:layout_marginStart="20sp"
+       android:layout_marginEnd="20sp"
+       android:layout_marginTop="15dp"
+       android:layout_marginBottom="10dp"
+       app:cardCornerRadius="25dp"
+       android:background="@drawable/colourone"
+       android:orientation="vertical"
+       >
+       <TextView
+           android:id="@+id/balance"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textColor="@color/white"
+           android:textSize="25sp"
+           android:fontFamily="serif"
+           android:text="37635.50570"
+           android:layout_gravity="center"
+           android:layout_marginTop="40dp"
+           />
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="40dp"
+           android:orientation="horizontal"
+           android:gravity="center"
+           >
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="@color/white"
+               android:textSize="20sp"
+               android:fontFamily="serif"
+               android:text="="
+               android:gravity="center_vertical"
+               android:layout_marginTop="5dp"
+               />
+
+           <TextView
+               android:id="@+id/dollarconverted"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="@color/white"
+               android:textSize="20sp"
+               android:fontFamily="serif"
+               android:text=" $37.635"
+               android:gravity="center_vertical"
+               android:layout_marginTop="5dp"
+               />
+
+           <ImageView
+               android:layout_width="20dp"
+               android:layout_height="20dp"
+               android:src="@drawable/helpoutline"
+               android:layout_gravity="center"
+               android:layout_marginStart="5dp"
+               android:layout_marginTop="5dp"
+               />
+
+       </LinearLayout>
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textColor="@color/white"
+           android:textSize="20sp"
+           android:fontFamily="serif"
+           android:text=" Balance     (UYC)"
+           android:layout_gravity="center"
+           android:layout_marginTop="25dp"
+           />
+
+
+   </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal"
+        >
+        <LinearLayout
+            android:id="@+id/withdrawbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:orientation="vertical"
+            android:layout_marginStart="80dp"
+            >
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:lottie_rawRes="@raw/diposit"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Withdraw"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/Depositbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:orientation="vertical"
+            android:layout_marginStart="55dp"
+            >
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:lottie_rawRes="@raw/diposit"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Deposit"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="25dp"
+        android:background="@drawable/colourone"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/datashow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#550707"
+            android:textSize="15sp"
+            android:fontFamily="serif"
+            android:text="All transaction history"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+           <ScrollView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               >
+               <ListView
+                   android:layout_width="match_parent"
+                   android:layout_height="50dp"
+                   />
+
+           </ScrollView>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textColor="#064219"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="15sp"
+        android:text="*Data Shows the Latest 7 Days "
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        />
+
+    <com.google.android.gms.ads.AdView
+        android:layout_gravity="center"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adViewE1"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_admob">
+    </com.google.android.gms.ads.AdView>
+
+
+</LinearLayout>
