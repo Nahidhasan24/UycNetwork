@@ -7,28 +7,26 @@
     android:orientation="vertical"
     android:background="@drawable/bgtow">
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="20sp"
-        android:layout_marginEnd="20sp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="2dp"
-        app:cardCornerRadius="10dp"
-        android:layout_gravity="center">
-
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <LinearLayout
-            android:background="@drawable/background_gradiant"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-condensed"
+                android:textStyle="bold"
+                android:text="UYC coin Live Chart"
+                android:layout_marginTop="10dp"
+                />
         </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
 
-
-    </androidx.cardview.widget.CardView>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -40,16 +38,7 @@
             android:orientation="vertical"
             android:gravity="center"
             >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:fontFamily="sans-serif-condensed"
-                android:textStyle="bold"
-                android:text="UYC coin Live Chart"
-                android:layout_marginTop="10dp"
-                />
+
 
 
             <androidx.cardview.widget.CardView
@@ -415,35 +404,51 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:weightSum="3"
                 android:layout_marginTop="10dp"
                 >
 
-                <Button
-                    android:id="@+id/startminig"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Start Mining"
-                    android:fontFamily="monospace"
-                    android:textAllCaps="true"
-                    android:layout_marginStart="50dp"
-                    android:textSize="12sp"
-                    android:background="@drawable/colourone"
-                    android:layout_marginTop="-5dp"
-                    />
+                <LinearLayout
+                    android:layout_margin="5dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <Button
+                        android:id="@+id/startminig"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Start Mining"
+                        android:fontFamily="monospace"
+                        android:textAllCaps="true"
+                        android:textSize="12sp"
+                        android:background="@drawable/colourone"
+                        />
 
-                <Button
-                    android:id="@+id/collect"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
-                    android:layout_marginEnd="100dp"
-                    android:fontFamily="monospace"
-                    android:text="Collect"
-                    android:textAllCaps="true"
-                    android:textSize="14sp"
-                    android:background="@drawable/background_gradiant"
+                </LinearLayout>
 
-                    />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_margin="5dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent">
+                    <Button
+                        android:id="@+id/collectCoinBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Collect Coin"
+                        android:fontFamily="monospace"
+                        android:textAllCaps="true"
+                        android:textSize="12sp"
+                        android:background="@drawable/colourone"
+                        />
+
+                </LinearLayout>
 
 
             </LinearLayout>

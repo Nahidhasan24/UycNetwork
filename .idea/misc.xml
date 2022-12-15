@@ -19,8 +19,9 @@
         <entry key="..\:/UycNetwork/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/UycNetwork/app/src/main/res/layout/activity_profile.xml" value="0.15476190476190477" />
         <entry key="..\:/UycNetwork/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/UycNetwork/app/src/main/res/layout/activity_splash.xml" value="0.25" />
         <entry key="..\:/UycNetwork/app/src/main/res/layout/activity_wallet.xml" value="0.15476190476190477" />
-        <entry key="..\:/UycNetwork/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/UycNetwork/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/UycNetwork/app/src/main/res/menu/menu_bottom.xml" value="0.2388888888888889" />
       </map>
     </option>

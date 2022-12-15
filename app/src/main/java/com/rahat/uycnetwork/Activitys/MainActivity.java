@@ -28,7 +28,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                Toast.makeText(MainActivity.this, ""+item.getItemId(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, ""+item.getItemId(), Toast.LENGTH_SHORT).show();
+                if (item.getItemId()==R.id.home){
+                    loadFragment(new HomeFragment());
+                }
                 return true;
             }
         });
