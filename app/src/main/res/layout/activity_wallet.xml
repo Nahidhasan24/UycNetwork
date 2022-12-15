@@ -8,48 +8,26 @@
     android:orientation="vertical"
     android:background="@drawable/bgtow">
 
-    <LinearLayout
+
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/beck"
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="15dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/backone" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="serif"
-            android:text="UYC Details"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="235dp"
-            android:textStyle="bold" />
-
-
-    </LinearLayout>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MY UYC"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:textColor="@color/white"
-        android:fontFamily="serif"
-        android:layout_gravity="center_horizontal"
-        />
-
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MY UYC"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:fontFamily="serif"
+                android:layout_gravity="center_horizontal"
+                />
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
 
    <LinearLayout
        android:layout_width="match_parent"
@@ -222,16 +200,7 @@
             android:orientation="vertical"
             android:gravity="center"
             >
-           <ScrollView
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               >
-               <ListView
-                   android:layout_width="match_parent"
-                   android:layout_height="50dp"
-                   />
 
-           </ScrollView>
 
         </LinearLayout>
 
