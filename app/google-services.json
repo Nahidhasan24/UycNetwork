@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "539223377468",
+    "project_id": "mining-demo-59bb2",
+    "storage_bucket": "mining-demo-59bb2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539223377468:android:6eb0c6a2083c6ae3666539",
+        "android_client_info": {
+          "package_name": "com.rahat.uycnetwork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539223377468-4d05e1mi10jttcs6gac17a4pmclr1u98.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVne9m_lGRWZbnLN3B1wUe1SLO3ZXn6SY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "539223377468-4d05e1mi10jttcs6gac17a4pmclr1u98.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

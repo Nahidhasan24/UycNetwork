@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
+    tools:context=".Activitys.Login"
     android:orientation="vertical"
     android:background="@drawable/bgtow">
 
@@ -30,6 +30,7 @@
 
 
     <EditText
+        android:id="@+id/regName"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:textSize="18dp"
@@ -44,11 +45,12 @@
         android:layout_gravity="center_horizontal"
         />
     <EditText
+        android:id="@+id/regNumber"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:textSize="18dp"
         android:textColorHint="#050505"
-        android:hint="User name:-"
+        android:hint="Number:-"
         android:inputType="text"
         android:textStyle="italic"
         android:fontFamily="monospace"
@@ -58,6 +60,7 @@
         android:layout_gravity="center_horizontal"
         />
     <EditText
+        android:id="@+id/regEmail"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:textSize="18dp"
@@ -72,6 +75,7 @@
         android:layout_gravity="center_horizontal"
         />
     <EditText
+        android:id="@+id/regPassword"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:textSize="18dp"
@@ -86,6 +90,7 @@
         android:layout_gravity="center_horizontal"
         />
     <EditText
+        android:id="@+id/regConPassword"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:textSize="18dp"
@@ -99,21 +104,6 @@
         android:layout_marginTop="4dp"
         android:layout_gravity="center_horizontal"
         />
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:textSize="18dp"
-        android:textColorHint="#050505"
-        android:hint="Refer Code:-"
-        android:inputType="number"
-        android:textStyle="italic"
-        android:fontFamily="monospace"
-        android:background="@drawable/background_gradiant"
-        android:padding="5dp"
-        android:layout_marginTop="4dp"
-        android:layout_gravity="center_horizontal"
-        />
-
     <Button
         android:id="@+id/registerbtn"
         android:layout_marginTop="30dp"
