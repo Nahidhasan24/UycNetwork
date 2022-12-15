@@ -1,16 +1,21 @@
 package com.rahat.uycnetwork.Modles;
 
 public class UserModle {
-    private String uid,name,mail,phone;
+    private String uid,name,mail,phone,status,refercode,referuse;
+    private int coin;
 
     public UserModle() {
     }
 
-    public UserModle(String uid, String name, String mail, String phone) {
+    public UserModle(String uid, String name, String mail, String phone, String status, String refercode, String referuse, int coin) {
         this.uid = uid;
         this.name = name;
         this.mail = mail;
         this.phone = phone;
+        this.status = status;
+        this.refercode = refercode;
+        this.referuse = referuse;
+        this.coin = coin;
     }
 
     public String getUid() {
@@ -43,5 +48,37 @@ public class UserModle {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getRefercode() {
+        return refercode;
+    }
+
+    public void setRefercode(String refercode) {
+        this.refercode = refercode;
+    }
+
+    public String getReferuse() {
+        return referuse;
+    }
+
+    public void setReferuse(String referuse) {
+        this.referuse = referuse;
+    }
+
+    public int getCoin() {
+        return coin;
+    }
+
+    public void setCoin(int coin) {
+        this.coin = coin;
     }
 }

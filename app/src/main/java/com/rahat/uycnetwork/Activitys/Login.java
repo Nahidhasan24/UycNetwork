@@ -27,6 +27,7 @@ public class Login extends AppCompatActivity {
         setContentView(binding.getRoot());
         progressDialog=new ProgressDialog(Login.this);
         progressDialog.setTitle("Loading.....");
+        progressDialog.setCancelable(false);
         mAuth=FirebaseAuth.getInstance();
         binding.loginBtn.setOnClickListener(v->{
             String mail,pass;

@@ -18,6 +18,8 @@ import com.rahat.uycnetwork.Modles.UserModle;
 import com.rahat.uycnetwork.R;
 import com.rahat.uycnetwork.databinding.ActivityRegisterBinding;
 
+import java.util.Random;
+
 public class register extends AppCompatActivity {
 
     ActivityRegisterBinding binding;
@@ -30,6 +32,7 @@ public class register extends AppCompatActivity {
         binding=ActivityRegisterBinding.inflate(getLayoutInflater());
         progressDialog=new ProgressDialog(register.this);
         progressDialog.setTitle("Loading....");
+        progressDialog.setCancelable(false);
         setContentView(binding.getRoot());
         mAuth=FirebaseAuth.getInstance();
         mRef= FirebaseDatabase.getInstance().getReference().child("Users");
@@ -41,7 +44,6 @@ public class register extends AppCompatActivity {
             number=binding.regNumber.getText().toString();
             password=binding.regPassword.getText().toString();
             conPassword=binding.regConPassword.getText().toString();
-
             if (name.isEmpty()){
                 Toast.makeText(this, "Empty", Toast.LENGTH_SHORT).show();
                 return;
@@ -83,7 +85,7 @@ public class register extends AppCompatActivity {
     }
 
     private void registerUser(String name, String mail, String number, String password) {
-        UserModle userModle=new UserModle(mAuth.getUid(),name,mail,number);
+        UserModle userModle=new UserModle(mAuth.getUid(),name,mail,number,"on",getReferCode(),"",0);
         mRef.child(mAuth.getUid())
                 .setValue(userModle)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -100,5 +102,11 @@ public class register extends AppCompatActivity {
                         }
                     }
                 });
+    }
+    private String getReferCode(){
+
+        int number=new Random().nextInt((991212- 111111) + 1) + 11111;
+
+        return "UYC"+number+"NS";
     }
 }
