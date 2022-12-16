@@ -69,125 +69,7 @@
                         android:layout_width="100dp"
                         android:layout_height="120dp">
                         <LinearLayout
-                            android:background="@color/white"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical"
-                            >
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="60dp"
-                                android:background="@drawable/planone"
-                                android:scaleType="centerCrop"
-                                />
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                >
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:gravity="center"
-                                    android:text="PLAN ONE"
-                                    android:textColor="@color/black"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold"
-                                    android:padding="5dp"
-                                    />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:fontFamily="serif"
-                                    android:gravity="center"
-                                    android:text="$50"
-                                    android:textColor="#149E0B"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold"
-                                    android:layout_marginTop="0dp"/>
-
-                            </LinearLayout>
-
-
-                        </LinearLayout>
-
-
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:layout_gravity="center"
-                        android:backgroundTint="@android:color/transparent"
-                        android:layout_margin="10dp"
-                        app:cardCornerRadius="10dp"
-                        android:layout_width="100dp"
-                        android:layout_height="120dp">
-                        <LinearLayout
-                            android:background="@color/white"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="60dp"
-                                android:background="@drawable/plamtow"
-                                android:scaleType="centerCrop"
-                                />
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:gravity="center"
-                                android:orientation="vertical"
-                                >
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:gravity="center"
-                                    android:text="PLAN TOW"
-                                    android:textColor="@color/black"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold"
-                                    android:padding="5dp"
-                                    />
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center"
-                                    android:fontFamily="serif"
-                                    android:gravity="center"
-                                    android:text="$80"
-                                    android:textColor="#149E0B"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold"
-                                    android:layout_marginTop="0dp"/>
-
-                            </LinearLayout>
-
-
-                        </LinearLayout>
-
-
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:layout_gravity="center"
-                        android:backgroundTint="@android:color/transparent"
-                        android:layout_margin="10dp"
-                        app:cardCornerRadius="10dp"
-                        android:layout_width="100dp"
-                        android:layout_height="120dp">
-                        <LinearLayout
+                            android:id="@+id/usdBtn"
                             android:background="@color/white"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -213,7 +95,7 @@
                                     android:layout_gravity="center"
                                     android:fontFamily="sans-serif-condensed"
                                     android:gravity="center"
-                                    android:text="PLAN FOUR"
+                                    android:text="USDT"
                                     android:textColor="@color/black"
                                     android:textSize="15sp"
                                     android:textStyle="bold"
@@ -226,7 +108,7 @@
                                     android:layout_gravity="center"
                                     android:fontFamily="serif"
                                     android:gravity="center"
-                                    android:text="$120"
+                                    android:text="$10"
                                     android:textColor="#149E0B"
                                     android:textSize="18sp"
                                     android:textStyle="bold"
@@ -248,6 +130,7 @@
                         android:layout_width="100dp"
                         android:layout_height="120dp">
                         <LinearLayout
+                            android:id="@+id/bnbBtn"
                             android:background="@color/white"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -273,7 +156,7 @@
                                     android:layout_gravity="center"
                                     android:fontFamily="sans-serif-condensed"
                                     android:gravity="center"
-                                    android:text="PLAN FIVE"
+                                    android:text="BNB"
                                     android:textColor="@color/black"
                                     android:textSize="15sp"
                                     android:textStyle="bold"
@@ -285,7 +168,7 @@
                                     android:layout_gravity="center"
                                     android:fontFamily="serif"
                                     android:gravity="center"
-                                    android:text="$300"
+                                    android:text="$30"
                                     android:textColor="#149E0B"
                                     android:textSize="18sp"
                                     android:textStyle="bold"
@@ -307,6 +190,7 @@
                         android:layout_width="100dp"
                         android:layout_height="120dp">
                         <LinearLayout
+                            android:id="@+id/uycBtn"
                             android:background="@color/white"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -332,7 +216,7 @@
                                     android:layout_gravity="center"
                                     android:fontFamily="sans-serif-condensed"
                                     android:gravity="center"
-                                    android:text="PLAN SIX"
+                                    android:text="UYC"
                                     android:textColor="@color/black"
                                     android:textSize="15sp"
                                     android:textStyle="bold"
@@ -344,7 +228,7 @@
                                     android:layout_gravity="center"
                                     android:fontFamily="serif"
                                     android:gravity="center"
-                                    android:text="$500"
+                                    android:text="$50"
                                     android:textColor="#149E0B"
                                     android:textSize="18sp"
                                     android:textStyle="bold"

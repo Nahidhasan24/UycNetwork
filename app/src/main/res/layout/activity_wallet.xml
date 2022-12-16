@@ -208,17 +208,6 @@
 
 
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="italic"
-        android:textColor="#064219"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="15sp"
-        android:text="*Data Shows the Latest 7 Days "
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        />
 
     <com.google.android.gms.ads.AdView
         android:layout_gravity="center"

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -35,22 +36,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        setBottomView();
+        //loadFragment(new HomeFragment());
         mAuth=FirebaseAuth.getInstance();
         mRef= FirebaseDatabase.getInstance().getReference().child("Config");
         inte();
-        loadFragment(new HomeFragment());
-        binding.bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+        binding.bottomNav.setOnShowListener(new MeowBottomNavigation.ShowListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                //Toast.makeText(MainActivity.this, ""+item.getItemId(), Toast.LENGTH_SHORT).show();
-                if (item.getItemId()==R.id.home){
+            public void onShowItem(MeowBottomNavigation.Model item) {
+                if (item.getId()==1){
                     loadFragment(new HomeFragment());
-                }else  if (item.getItemId()==R.id.account){
+                }else  if (item.getId()==2){
                     startActivity(new Intent(getApplicationContext(),Profile.class));
-                }else if (item.getItemId()==R.id.wallet){
+                }else if (item.getId()==5){
                     startActivity(new Intent(getApplicationContext(),wallet.class));
                 }
-                return true;
+            }
+        });
+        binding.bottomNav.show(1, true);
+        binding.bottomNav.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
+            @Override
+            public void onClickItem(MeowBottomNavigation.Model item) {
+
+            }
+        });
+        binding.bottomNav.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
+            @Override
+            public void onReselectItem(MeowBottomNavigation.Model item) {
+
             }
         });
 
@@ -96,5 +109,16 @@ public class MainActivity extends AppCompatActivity {
         int pid = android.os.Process.myPid();
         android.os.Process.killProcess(pid);
         System.exit(0);
+    }
+
+    @Override
+    public void onBackPressed() {
+        quit();
+    }
+
+    private void setBottomView() {
+        binding.bottomNav.add(new MeowBottomNavigation.Model(1, R.drawable.ic_home));
+        binding.bottomNav.add(new MeowBottomNavigation.Model(2, R.drawable.ic_account));
+        binding.bottomNav.add(new MeowBottomNavigation.Model(5, R.drawable.ic_wallet));
     }
 }

@@ -13,12 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+        android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/menu_bottom"
         android:layout_alignParentBottom="true"
-        />
+        app:mbn_backgroundBottomColor="@color/purple_500"
+        app:mbn_selectedIconColor="@color/black" />
 
 </RelativeLayout>

@@ -170,27 +170,17 @@
                     android:layout_height="match_parent" >
 
                     <RadioButton
-                        android:id="@+id/nagadBtn"
+                        android:id="@+id/trc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nagad" />
+                        android:text="USDT TRC20" />
 
                     <RadioButton
-                        android:id="@+id/rocketBtn"
+                        android:id="@+id/binance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rocket" />
+                        android:text="Binance" />
 
-                    <RadioButton
-                        android:id="@+id/bkashBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Bkash" />
-                    <RadioButton
-                        android:id="@+id/payneorBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Payoneer" />
                 </RadioGroup>
             </LinearLayout>
 

@@ -129,14 +129,10 @@ public class AddMoneyActivity extends AppCompatActivity {
 
     private String getName(int i) {
         String me = null;
-        if (i == R.id.nagadBtn) {
-            me = "Nagad";
-        } else if (i == R.id.rocketBtn) {
-            me = "Rocket";
-        } else if (i == R.id.bkashBtn) {
-            me = "Bkash";
-        } else if (i==R.id.payneorBtn){
-            me="Payoneer";
+        if (i == R.id.trc) {
+            me = "USDT TRC20";
+        } else if (i == R.id.binance) {
+            me = "Binance";
         }
         return me;
     }
