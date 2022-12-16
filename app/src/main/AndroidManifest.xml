@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.rahat.uycnetwork">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,10 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UycNetwork"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Activitys.WithdrawActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.AddMoneyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.ComingSoon"
+            android:exported="false" />
         <activity
             android:name=".Activitys.Splash"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,18 +44,14 @@
             android:exported="false" />
         <activity
             android:name=".Activitys.Login"
-            android:exported="false" >
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".Activitys.MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-3940256099942544~3347511713" />
     </application>
 
 </manifest>

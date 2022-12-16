@@ -41,7 +41,7 @@
        android:orientation="vertical"
        >
        <TextView
-           android:id="@+id/balance"
+           android:id="@+id/balanceTV"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:textColor="@color/white"
@@ -111,7 +111,7 @@
         android:orientation="horizontal"
         >
         <LinearLayout
-            android:id="@+id/withdrawbtn"
+            android:id="@+id/withdrawBtn"
             android:layout_width="wrap_content"
             android:layout_height="120dp"
             android:orientation="vertical"
@@ -139,7 +139,7 @@
 
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/Depositbtn"
+            android:id="@+id/addMoneyBtn"
             android:layout_width="wrap_content"
             android:layout_height="120dp"
             android:orientation="vertical"

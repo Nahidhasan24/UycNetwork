@@ -3,6 +3,7 @@ package com.rahat.uycnetwork.Activitys;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -22,11 +23,16 @@ public class Profile extends AppCompatActivity {
     FirebaseAuth mAuth;
     DatabaseReference mRef;
     UserModle userModle;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        progressDialog=new ProgressDialog(Profile.this);
+        progressDialog.setCancelable(false);
+        progressDialog.setTitle("Loading....");
+        progressDialog.show();
         mAuth=FirebaseAuth.getInstance();
         mRef= FirebaseDatabase.getInstance().getReference().child("Users");
         init();
@@ -38,6 +44,7 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()){
+                            progressDialog.dismiss();
                             userModle=snapshot.getValue(UserModle.class);
                             binding.profileName.setText("Name : "+userModle.getName());
                             binding.profileNumber.setText("Phone : "+userModle.getPhone());
@@ -47,6 +54,7 @@ public class Profile extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
+                        progressDialog.dismiss();
                         Toast.makeText(Profile.this, ""+error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
