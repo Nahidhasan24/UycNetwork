@@ -4,14 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.basusingh.beautifulprogressdialog.BeautifulProgressDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +29,7 @@ import com.rahat.uycnetwork.Modles.UserModle;
 import com.rahat.uycnetwork.R;
 import com.rahat.uycnetwork.databinding.ActivityInviteBinding;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.HashMap;
@@ -36,15 +41,30 @@ public class InviteActivity extends AppCompatActivity {
     DatabaseReference mRef;
     UserModle userModle;
     Dialog dialog;
+    BeautifulProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityInviteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        progressDialog = new BeautifulProgressDialog(InviteActivity.this,
+                BeautifulProgressDialog.withGIF,
+                "Please wait");
+        progressDialog.setGifLocation(Uri.fromFile(new File("//android_asset/loading.gif")));
+        progressDialog.setLottieLoop(true);
         mAuth = FirebaseAuth.getInstance();
         mRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        progressDialog.show();
         inits();
+        binding.shareRef.setOnClickListener(v->{
+            String msg="Hello My refer code "+userModle.getRefercode()+" Use This \n to get extra coin For Free App Link "+sendRevire();
+            shareText(msg);
+        });
+        binding.copyRef.setOnClickListener(v->{
+            String msg="Hello My refer code "+userModle.getRefercode()+" Use This \n to get extra coin For Free App Link "+sendRevire();
+            setClipboard(getApplicationContext(),userModle.getRefercode());
+        });
 
 
     }
@@ -217,6 +237,7 @@ public class InviteActivity extends AppCompatActivity {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        progressDialog.dismiss();
                         userModle = snapshot.getValue(UserModle.class);
                         binding.totalRefer.setText("" + userModle.getRefercount());
                         binding.referCodeTV.setText("" + userModle.getRefercode());
@@ -228,8 +249,27 @@ public class InviteActivity extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
+                        progressDialog.dismiss();
                     }
                 });
+    }
+
+    public void shareText(String body) {
+        Intent txtIntent = new Intent(android.content.Intent.ACTION_SEND);
+        txtIntent .setType("text/plain");
+        txtIntent .putExtra(android.content.Intent.EXTRA_SUBJECT, "Invite And Eran");
+        txtIntent .putExtra(android.content.Intent.EXTRA_TEXT, body);
+        startActivity(Intent.createChooser(txtIntent ,"Share"));
+    }
+    private void setClipboard(Context context, String text) {
+        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", text);
+        clipboard.setPrimaryClip(clip);
+        Toast.makeText(context, "Copy", Toast.LENGTH_SHORT).show();
+    }
+    private String sendRevire(){
+        final String appPackageName = getApplication().getPackageName();
+        String url="https://play.google.com/store/apps/details?id=" + appPackageName;
+        return  url;
     }
 }
