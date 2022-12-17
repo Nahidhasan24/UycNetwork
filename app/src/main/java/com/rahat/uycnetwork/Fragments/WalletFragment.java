@@ -1,11 +1,14 @@
-package com.rahat.uycnetwork.Activitys;
+package com.rahat.uycnetwork.Fragments;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -13,45 +16,48 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rahat.uycnetwork.Activitys.AddMoneyActivity;
+import com.rahat.uycnetwork.Activitys.WithdrawActivity;
 import com.rahat.uycnetwork.Modles.UserModle;
 import com.rahat.uycnetwork.R;
-import com.rahat.uycnetwork.databinding.ActivityWalletBinding;
+import com.rahat.uycnetwork.databinding.FragmentWalletBinding;
 
-public class wallet extends AppCompatActivity {
 
-    ActivityWalletBinding binding;
+public class WalletFragment extends Fragment {
+
+    FragmentWalletBinding binding;
     FirebaseAuth mAuth;
     DatabaseReference mRef;
     UserModle userModle;
-    ProgressDialog progressDialog;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = ActivityWalletBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        progressDialog = new ProgressDialog(wallet.this);
-        progressDialog.setCancelable(false);
-        progressDialog.setTitle("Loading....");
-        progressDialog.show();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        binding=FragmentWalletBinding.inflate(inflater,container,false);
         mAuth = FirebaseAuth.getInstance();
         mRef = FirebaseDatabase.getInstance().getReference().child("Users");
         inite();
         binding.addMoneyBtn.setOnClickListener(v -> {
-            startActivity(new Intent(getApplicationContext(), AddMoneyActivity.class));
+            startActivity(new Intent(getActivity(), AddMoneyActivity.class));
         });
         binding.withdrawBtn.setOnClickListener(v->{
-            startActivity(new Intent(getApplicationContext(),WithdrawActivity.class));
+            startActivity(new Intent(getActivity(), WithdrawActivity.class));
         });
-    }
 
+
+        return binding.getRoot();
+    }
     private void inite() {
         mRef.child(mAuth.getUid())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()) {
-                            progressDialog.dismiss();
                             userModle = snapshot.getValue(UserModle.class);
                             binding.balanceTV.setText(userModle.getCoin() + "");
                         }
@@ -59,7 +65,6 @@ public class wallet extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-                        progressDialog.dismiss();
                     }
                 });
     }

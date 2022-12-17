@@ -13,6 +13,9 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -21,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rahat.uycnetwork.Fragments.HomeFragment;
+import com.rahat.uycnetwork.Fragments.ProfileFragment;
+import com.rahat.uycnetwork.Fragments.WalletFragment;
 import com.rahat.uycnetwork.Modles.Config;
 import com.rahat.uycnetwork.R;
 import com.rahat.uycnetwork.databinding.ActivityMainBinding;
@@ -40,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
         //loadFragment(new HomeFragment());
         mAuth=FirebaseAuth.getInstance();
         mRef= FirebaseDatabase.getInstance().getReference().child("Config");
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
         inte();
         binding.bottomNav.setOnShowListener(new MeowBottomNavigation.ShowListener() {
             @Override
@@ -47,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
                 if (item.getId()==1){
                     loadFragment(new HomeFragment());
                 }else  if (item.getId()==2){
-                    startActivity(new Intent(getApplicationContext(),Profile.class));
+                   loadFragment(new ProfileFragment());
                 }else if (item.getId()==5){
-                    startActivity(new Intent(getApplicationContext(),wallet.class));
+                   loadFragment(new WalletFragment());
                 }
             }
         });

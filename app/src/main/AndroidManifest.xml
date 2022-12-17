@@ -34,12 +34,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activitys.Profile"
-            android:exported="false" />
-        <activity
-            android:name=".Activitys.wallet"
-            android:exported="false" />
-        <activity
             android:name=".Activitys.register"
             android:exported="false" />
         <activity

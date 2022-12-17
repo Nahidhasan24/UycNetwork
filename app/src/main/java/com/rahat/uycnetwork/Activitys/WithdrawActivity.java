@@ -50,7 +50,11 @@ public class WithdrawActivity extends AppCompatActivity {
         mWithdraw = FirebaseDatabase.getInstance().getReference().child("Withdraw");
         inits();
         binding.bnbBtn.setOnClickListener(v -> {
-            showForgotDialog(WithdrawActivity.this, "BNB");
+            if (userModle.getCoin()<=100){
+                Toast.makeText(this, "LOL", Toast.LENGTH_SHORT).show();
+            }else {
+                showForgotDialog(WithdrawActivity.this, "BNB");
+            }
         });
         binding.uycBtn.setOnClickListener(v -> {
             showForgotDialog(WithdrawActivity.this, "UYC");

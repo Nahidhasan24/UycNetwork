@@ -26,7 +26,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        Toast.makeText(getActivity(), "App is Currently development mode ", Toast.LENGTH_SHORT).show();
+        ///Toast.makeText(getActivity(), "App is Currently development mode ", Toast.LENGTH_SHORT).show();
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 }
