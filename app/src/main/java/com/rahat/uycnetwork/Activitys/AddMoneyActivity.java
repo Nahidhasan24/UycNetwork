@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rahat.uycnetwork.Modles.AddMoneyModel;
+import com.rahat.uycnetwork.Modles.Config;
 import com.rahat.uycnetwork.Modles.UserModle;
 import com.rahat.uycnetwork.R;
 import com.rahat.uycnetwork.databinding.ActivityAddMoneyBinding;
@@ -50,7 +51,7 @@ public class AddMoneyActivity extends AppCompatActivity {
         progressDialog.setLottieLoop(true);
         progressDialog.show();
         mAuth = FirebaseAuth.getInstance();
-        mRef = FirebaseDatabase.getInstance().getReference().child("config");
+        mRef = FirebaseDatabase.getInstance().getReference().child("Config");
         mUser = FirebaseDatabase.getInstance().getReference().child("Users");
         mAddMoney = FirebaseDatabase.getInstance().getReference().child("addmoney");
         progressDialog.show();
@@ -113,15 +114,29 @@ public class AddMoneyActivity extends AppCompatActivity {
 
                     }
                 });
-        mRef.child(mAuth.getUid())
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()){
+                            Config config=snapshot.getValue(Config.class);
                             progressDialog.dismiss();
-                            binding.submitBtn.setEnabled(false);
+                            binding.noticeTV.setText(""+config.getNotice());
                         }else{
                             progressDialog.dismiss();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+        mAddMoney.child(mAuth.getUid())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()){
+                            binding.submitBtn.setEnabled(false);
                         }
                     }
 

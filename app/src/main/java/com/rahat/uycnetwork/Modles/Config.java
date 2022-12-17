@@ -1,17 +1,18 @@
 package com.rahat.uycnetwork.Modles;
 
 public class Config {
-    private String plan,server,withdraw;
+    private String plan,server,withdraw,notice;
     private int minwithdraw;
     private double rate;
 
     public Config() {
     }
 
-    public Config(String plan, String server, String withdraw, int minwithdraw, double rate) {
+    public Config(String plan, String server, String withdraw, String notice, int minwithdraw, double rate) {
         this.plan = plan;
         this.server = server;
         this.withdraw = withdraw;
+        this.notice = notice;
         this.minwithdraw = minwithdraw;
         this.rate = rate;
     }
@@ -38,6 +39,14 @@ public class Config {
 
     public void setWithdraw(String withdraw) {
         this.withdraw = withdraw;
+    }
+
+    public String getNotice() {
+        return notice;
+    }
+
+    public void setNotice(String notice) {
+        this.notice = notice;
     }
 
     public int getMinwithdraw() {

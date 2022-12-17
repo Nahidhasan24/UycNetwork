@@ -150,7 +150,7 @@ public class register extends AppCompatActivity {
 
 
     private void registerUser(String name, String mail, String number, String password) {
-        UserModle userModle = new UserModle(mAuth.getUid(), name, mail, number, "on", getReferCode(), "", 0);
+        UserModle userModle = new UserModle(mAuth.getUid(), name, mail, number, "on", getReferCode(), "", 0,0);
         mRef.child(mAuth.getUid())
                 .setValue(userModle)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

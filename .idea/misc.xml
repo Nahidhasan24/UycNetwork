@@ -5,18 +5,22 @@
       <map>
         <entry key="..\:/UycNetwork/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.153" />
         <entry key="..\:/UycNetwork/app/src/main/res/drawable/account.xml" value="0.153" />
+        <entry key="..\:/UycNetwork/app/src/main/res/drawable/back_et.xml" value="0.153" />
         <entry key="..\:/UycNetwork/app/src/main/res/drawable/background_gradiant.xml" value="0.153" />
         <entry key="..\:/UycNetwork/app/src/main/res/drawable/backicoin.xml" value="0.153" />
         <entry key="..\:/UycNetwork/app/src/main/res/drawable/backone.xml" value="0.153" />
         <entry key="..\:/UycNetwork/app/src/main/res/drawable/colourone.xml" value="0.153" />
         <entry key="..\:/UycNetwork/app/src/main/res/drawable/colourtow.xml" value="0.153" />
+        <entry key="..\:/UycNetwork/app/src/main/res/drawable/dialoag_bg.xml" value="0.153" />
         <entry key="..\:/UycNetwork/app/src/main/res/drawable/helpoutline.xml" value="0.153" />
         <entry key="..\:/UycNetwork/app/src/main/res/drawable/ic_launcher_background.xml" value="0.153" />
         <entry key="..\:/UycNetwork/app/src/main/res/drawable/mail.xml" value="0.153" />
+        <entry key="..\:/UycNetwork/app/src/main/res/drawable/text_bg.xml" value="0.153" />
         <entry key="..\:/UycNetwork/app/src/main/res/drawable/user.xml" value="0.153" />
         <entry key="..\:/UycNetwork/app/src/main/res/drawable/wallet.xml" value="0.153" />
         <entry key="..\:/UycNetwork/app/src/main/res/layout/activity_add_money.xml" value="0.25" />
         <entry key="..\:/UycNetwork/app/src/main/res/layout/activity_coming_soon.xml" value="0.15476190476190477" />
+        <entry key="..\:/UycNetwork/app/src/main/res/layout/activity_invite.xml" value="0.18" />
         <entry key="..\:/UycNetwork/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/UycNetwork/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/UycNetwork/app/src/main/res/layout/activity_profile.xml" value="0.22" />
@@ -27,6 +31,7 @@
         <entry key="..\:/UycNetwork/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/UycNetwork/app/src/main/res/layout/fragment_profile.xml" value="0.28532608695652173" />
         <entry key="..\:/UycNetwork/app/src/main/res/layout/fragment_wallet.xml" value="0.25" />
+        <entry key="..\:/UycNetwork/app/src/main/res/layout/rating_dialoag.xml" value="0.15476190476190477" />
         <entry key="..\:/UycNetwork/app/src/main/res/menu/menu_bottom.xml" value="0.2388888888888889" />
       </map>
     </option>
