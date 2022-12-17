@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rahat.uycnetwork.Modles.Config;
+import com.rahat.uycnetwork.Modles.MiningModle;
 import com.rahat.uycnetwork.Modles.PackagesModle;
 import com.rahat.uycnetwork.Modles.PlanModle;
 import com.rahat.uycnetwork.Modles.UserModle;
@@ -29,8 +32,10 @@ import com.rahat.uycnetwork.R;
 import com.rahat.uycnetwork.databinding.FragmentHomeBinding;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -42,12 +47,16 @@ public class HomeFragment extends Fragment {
     DatabaseReference mConfig;
     DatabaseReference mWithdraw;
     DatabaseReference mPlan;
+    DatabaseReference mMining;
     DatabaseReference mPackages;
     ProgressDialog progressDialog;
     FirebaseAuth mAuth;
     ArrayList<PackagesModle> arrayList=new ArrayList<>();
     UserModle userModle;
     Config config;
+    MiningModle miningModle;
+    boolean isDataValid=false;
+    boolean isMining=false;
     int one,two,three;
     double oneSpeed,TwoSpeed,ThreeSpeed;
     @Override
@@ -68,6 +77,7 @@ public class HomeFragment extends Fragment {
         mWithdraw = FirebaseDatabase.getInstance().getReference().child("Withdraw");
         mPlan = FirebaseDatabase.getInstance().getReference().child("packages");
         mPackages = FirebaseDatabase.getInstance().getReference().child("Plans");
+        mMining = FirebaseDatabase.getInstance().getReference().child("Mining");
         init();
         binding.planOneBtn.setOnClickListener(v->{
             if (isCoin(userModle.getCoin(),one)){
@@ -219,6 +229,24 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getActivity(), "You don't have coin please add money fast.", Toast.LENGTH_SHORT).show();
             }
         });
+        binding.startMimingBtn.setOnClickListener(v->{
+            if (!isMining){
+                if (isDataValid){
+                    Toast.makeText(getActivity(), "we Can mine", Toast.LENGTH_SHORT).show();
+                }else{
+                   //
+                    getTimeFuture();
+                   new Handler().postDelayed(new Runnable() {
+                       @Override
+                       public void run() {
+                           getTimeLeft();
+                       }
+                   },3000);
+                }
+            }else{
+                Toast.makeText(getActivity(), "Mining Running !", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return binding.getRoot();
     }
@@ -285,6 +313,30 @@ public class HomeFragment extends Fragment {
 
                     }
                 });
+        mMining.child(mAuth.getUid())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()){
+                            isDataValid=true;
+                            miningModle=snapshot.getValue(MiningModle.class);
+                            if (!miningModle.getTime().equals("")) {
+                                getTimeLeft();
+                                isMining = true;
+                            } else {
+                                isMining = false;
+                            }
+                        }else{
+                            isDataValid=false;
+                            //getTimeFuture();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        isDataValid=false;
+                    }
+                });
     }
     boolean isCoin(double coin,int com){
         if (coin<=com){
@@ -294,8 +346,87 @@ public class HomeFragment extends Fragment {
         }
     }
     private String getTodayTime() {
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss aa");
         Date date = new Date();
         return dateFormat.format(date);
     }
+    private void getTimeFuture() {
+
+        final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss aa");
+        final Date date;
+        try {
+            date = sdf.parse(getTodayTime());
+            final Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            calendar.add(Calendar.HOUR, 12);
+            System.out.println("Time here " + sdf.format(calendar.getTime()));
+            String time = sdf.format(calendar.getTime());
+            Toast.makeText(getActivity(), "" + sdf.format(calendar.getTime()), Toast.LENGTH_SHORT).show();
+            MiningModle miningModle=new MiningModle(mAuth.getUid(),sdf.format(calendar.getTime()),"");
+            mMining.child(mAuth.getUid())
+                    .setValue(miningModle);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+        //return sdf.format(calendar);
+    }
+    private void getTimeLeft() {
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss aa");
+            try {
+                Date oldTime = sdf.parse(miningModle.getTime());
+                Date currentDate = sdf.parse(getTodayTime());
+
+                long diff = oldTime.getTime() - currentDate.getTime();
+                // Log.d("MyTag", "Days: " + TimeUnit.MINUTES.convert(diff, TimeUnit.HOURS));
+//                if (diff <= 0) {
+//                    isMining = false;
+//                    Toast.makeText(getActivity(), "Diff Section", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(getActivity(), "Not End Yat", Toast.LENGTH_SHORT).show();
+//                }
+
+
+                CountDownTimer count = new CountDownTimer(diff, 1000) {
+                    @Override
+                    public void onTick(long milliseconds) {
+
+//                        long hours = TimeUnit.MILLISECONDS.toHours(milliseconds);
+//                        long minutes = TimeUnit.MILLISECONDS.toMinutes(milliseconds);
+//                        long seconds = TimeUnit.MILLISECONDS.toSeconds(milliseconds);
+//                        binding.timeTV.setText(hours+" : "+minutes+" : "+seconds);
+//
+//                        System.out.println("hours: " + hours);
+//                        System.out.println("minutes: " + minutes);
+//                        System.out.println("seconds: " + seconds);
+
+                        int seconds = (int) (milliseconds / 1000) % 60;
+                        int minutes = (int) ((milliseconds / (1000 * 60)) % 60);
+                        int hours = (int) ((milliseconds / (1000 * 60 * 60)) % 24);
+                        binding.timeCounter.setText("" + hours + " : " + minutes + " : " + seconds);
+
+                        //Toast.makeText(getActivity(), ""+doneTime, Toast.LENGTH_SHORT).show();
+
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        //long seconds = TimeUnit.MILLISECONDS.toSeconds(oldTime.getTime());
+                        mMining.child(mAuth.getUid())
+                                .removeValue();
+                        isMining = false;
+                    }
+                }.start();
+
+
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        }
+
 }
