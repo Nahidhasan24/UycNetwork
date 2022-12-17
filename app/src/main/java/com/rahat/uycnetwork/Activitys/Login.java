@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.basusingh.beautifulprogressdialog.BeautifulProgressDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -15,19 +17,23 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.rahat.uycnetwork.R;
 import com.rahat.uycnetwork.databinding.ActivityLoginBinding;
 
+import java.io.File;
+
 public class Login extends AppCompatActivity {
 
     ActivityLoginBinding binding;
     FirebaseAuth mAuth;
-    ProgressDialog progressDialog;
+    BeautifulProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        progressDialog=new ProgressDialog(Login.this);
-        progressDialog.setTitle("Loading.....");
-        progressDialog.setCancelable(false);
+        progressDialog = new BeautifulProgressDialog(Login.this,
+                BeautifulProgressDialog.withGIF,
+                "Please wait");
+        progressDialog.setGifLocation(Uri.fromFile(new File("//android_asset/loading.gif")));
+        progressDialog.setLottieLoop(true);
         mAuth=FirebaseAuth.getInstance();
         binding.loginBtn.setOnClickListener(v->{
             String mail,pass;

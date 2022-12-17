@@ -47,4 +47,6 @@ dependencies {
     implementation "com.airbnb.android:lottie:$lottieVersion"
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
     implementation "com.etebarian:meow-bottom-navigation-java:1.2.0"
+    implementation 'com.karumi:dexter:6.2.3'
+    implementation 'com.github.basusingh:BeautifulProgressDialog:1.001'
 }

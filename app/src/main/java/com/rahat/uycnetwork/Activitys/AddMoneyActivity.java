@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.basusingh.beautifulprogressdialog.BeautifulProgressDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +23,7 @@ import com.rahat.uycnetwork.Modles.UserModle;
 import com.rahat.uycnetwork.R;
 import com.rahat.uycnetwork.databinding.ActivityAddMoneyBinding;
 
+import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,15 +37,17 @@ public class AddMoneyActivity extends AppCompatActivity {
     DatabaseReference mAddMoney;
     FirebaseAuth mAuth;
     UserModle userModle;
-    ProgressDialog progressDialog;
+    BeautifulProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityAddMoneyBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        progressDialog = new ProgressDialog(AddMoneyActivity.this);
-        progressDialog.setTitle("Loading....");
-        progressDialog.setCancelable(false);
+        progressDialog = new BeautifulProgressDialog(AddMoneyActivity.this,
+                BeautifulProgressDialog.withGIF,
+                "Please wait");
+        progressDialog.setGifLocation(Uri.fromFile(new File("//android_asset/loading.gif")));
+        progressDialog.setLottieLoop(true);
         progressDialog.show();
         mAuth = FirebaseAuth.getInstance();
         mRef = FirebaseDatabase.getInstance().getReference().child("config");

@@ -257,20 +257,27 @@ public class HomeFragment extends Fragment {
                 HashMap<String,Object> map=new HashMap<>();
                 map.put("coin",tmpCoin);
 
-                HashMap<String,Object> hashMap=new HashMap<>();
-                hashMap.put("mining","");
-
-                mMining.child(mAuth.getUid())
-                        .updateChildren(hashMap)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()){
-                                    mRef.child(mAuth.getUid())
-                                            .updateChildren(map);
-                                }
-                            }
-                        });
+               mRef.child(mAuth.getUid())
+                       .updateChildren(map)
+                       .addOnCompleteListener(new OnCompleteListener<Void>() {
+                           @Override
+                           public void onComplete(@NonNull Task<Void> task) {
+                               if (task.isSuccessful()){
+                                   mMining.child(mAuth.getUid())
+                                           .removeValue()
+                                           .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                               @Override
+                                               public void onComplete(@NonNull Task<Void> task) {
+                                                   if (task.isSuccessful()){
+                                                       Toast.makeText(getActivity(), "Sucess", Toast.LENGTH_SHORT).show();
+                                                   }else{
+                                                       Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                                                   }
+                                               }
+                                           });
+                               }
+                           }
+                       });
             }
         });
 
