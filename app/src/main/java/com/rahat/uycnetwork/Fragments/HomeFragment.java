@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -79,6 +80,7 @@ public class HomeFragment extends Fragment {
         mPackages = FirebaseDatabase.getInstance().getReference().child("Plans");
         mMining = FirebaseDatabase.getInstance().getReference().child("Mining");
         init();
+        loadAd();
         binding.planOneBtn.setOnClickListener(v->{
             if (isCoin(userModle.getCoin(),one)){
                 AlertDialog.Builder builder =new AlertDialog.Builder(getActivity());
@@ -247,9 +249,39 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getActivity(), "Mining Running !", Toast.LENGTH_SHORT).show();
             }
         });
+        binding.collectCoinBtn.setOnClickListener(v->{
+            if (miningModle.getMining().equals("")){
+                Toast.makeText(getActivity(), "Not Finish Yet", Toast.LENGTH_SHORT).show();
+            }else{
+                double tmpCoin=userModle.getCoin()+1000;
+                HashMap<String,Object> map=new HashMap<>();
+                map.put("coin",tmpCoin);
+
+                HashMap<String,Object> hashMap=new HashMap<>();
+                hashMap.put("mining","");
+
+                mMining.child(mAuth.getUid())
+                        .updateChildren(hashMap)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()){
+                                    mRef.child(mAuth.getUid())
+                                            .updateChildren(map);
+                                }
+                            }
+                        });
+            }
+        });
 
         return binding.getRoot();
     }
+
+    private void loadAd() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        binding.adView.loadAd(adRequest);
+    }
+
     void init(){
         mPlan.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -361,7 +393,7 @@ public class HomeFragment extends Fragment {
             calendar.add(Calendar.HOUR, 12);
             System.out.println("Time here " + sdf.format(calendar.getTime()));
             String time = sdf.format(calendar.getTime());
-            Toast.makeText(getActivity(), "" + sdf.format(calendar.getTime()), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "" + sdf.format(calendar.getTime()), Toast.LENGTH_SHORT).show();
             MiningModle miningModle=new MiningModle(mAuth.getUid(),sdf.format(calendar.getTime()),"");
             mMining.child(mAuth.getUid())
                     .setValue(miningModle);
@@ -416,8 +448,11 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onFinish() {
                         //long seconds = TimeUnit.MILLISECONDS.toSeconds(oldTime.getTime());
+                        HashMap<String,Object> hashMap=new HashMap<>();
+                        hashMap.put("mining","done");
                         mMining.child(mAuth.getUid())
-                                .removeValue();
+                                .updateChildren(hashMap);
+
                         isMining = false;
                     }
                 }.start();

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.ads.AdRequest;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,6 +43,7 @@ public class WalletFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         mRef = FirebaseDatabase.getInstance().getReference().child("Users");
         inite();
+        loadAd();
         binding.addMoneyBtn.setOnClickListener(v -> {
             startActivity(new Intent(getActivity(), AddMoneyActivity.class));
         });
@@ -51,6 +53,10 @@ public class WalletFragment extends Fragment {
 
 
         return binding.getRoot();
+    }
+    private void loadAd() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        binding.adView.loadAd(adRequest);
     }
     private void inite() {
         mRef.child(mAuth.getUid())
