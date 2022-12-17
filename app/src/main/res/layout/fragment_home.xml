@@ -61,6 +61,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
+                android:id="@+id/planSection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -90,6 +91,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="120dp">
                                 <LinearLayout
+                                    android:id="@+id/planOneBtn"
                                     android:background="@color/white"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
@@ -111,6 +113,7 @@
                                         >
 
                                         <TextView
+                                            android:id="@+id/planOneName"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -123,6 +126,7 @@
                                             android:padding="5dp"
                                             />
                                         <TextView
+                                            android:id="@+id/planOnePrice"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -150,6 +154,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="120dp">
                                 <LinearLayout
+                                    android:id="@+id/planTwoBtn"
                                     android:background="@color/white"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
@@ -170,6 +175,7 @@
                                         >
 
                                         <TextView
+                                            android:id="@+id/planTwoName"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -182,6 +188,7 @@
                                             android:padding="5dp"
                                             />
                                         <TextView
+                                            android:id="@+id/planTwoPrice"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -209,6 +216,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="120dp">
                                 <LinearLayout
+                                    android:id="@+id/planThreeBtn"
                                     android:background="@color/white"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
@@ -229,6 +237,7 @@
                                         >
 
                                         <TextView
+                                            android:id="@+id/planThreeName"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -242,6 +251,7 @@
 
                                             />
                                         <TextView
+                                            android:id="@+id/planThreePrice"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center"
@@ -261,124 +271,7 @@
 
 
                             </androidx.cardview.widget.CardView>
-                            <androidx.cardview.widget.CardView
-                                android:layout_gravity="center"
-                                android:backgroundTint="@android:color/transparent"
-                                android:layout_margin="10dp"
-                                app:cardCornerRadius="10dp"
-                                android:layout_width="100dp"
-                                android:layout_height="120dp">
-                                <LinearLayout
-                                    android:background="@color/white"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
 
-                                    <ImageView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:background="@drawable/planone"
-                                        android:scaleType="centerCrop"
-                                        />
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_gravity="center"
-                                        android:gravity="center"
-                                        android:orientation="vertical"
-                                        >
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:fontFamily="sans-serif-condensed"
-                                            android:gravity="center"
-                                            android:text="PLAN FIVE"
-                                            android:textColor="@color/black"
-                                            android:textSize="15sp"
-                                            android:textStyle="bold"
-                                            android:padding="5dp"
-                                            />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:fontFamily="serif"
-                                            android:gravity="center"
-                                            android:text="$300"
-                                            android:textColor="#149E0B"
-                                            android:textSize="18sp"
-                                            android:textStyle="bold"
-                                            android:layout_marginTop="0dp"/>
-
-                                    </LinearLayout>
-
-
-                                </LinearLayout>
-
-
-
-                            </androidx.cardview.widget.CardView>
-                            <androidx.cardview.widget.CardView
-                                android:layout_gravity="center"
-                                android:backgroundTint="@android:color/transparent"
-                                android:layout_margin="10dp"
-                                app:cardCornerRadius="10dp"
-                                android:layout_width="100dp"
-                                android:layout_height="120dp">
-                                <LinearLayout
-                                    android:background="@color/white"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <ImageView
-                                        android:layout_width="match_parent"
-                                        android:layout_height="60dp"
-                                        android:background="@drawable/plamtow"
-                                        android:scaleType="centerCrop"
-                                        />
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_gravity="center"
-                                        android:gravity="center"
-                                        android:orientation="vertical"
-                                        >
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:fontFamily="sans-serif-condensed"
-                                            android:gravity="center"
-                                            android:text="PLAN SIX"
-                                            android:textColor="@color/black"
-                                            android:textSize="15sp"
-                                            android:textStyle="bold"
-                                            android:padding="5dp"
-                                            />
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:fontFamily="serif"
-                                            android:gravity="center"
-                                            android:text="$500"
-                                            android:textColor="#149E0B"
-                                            android:textSize="18sp"
-                                            android:textStyle="bold"
-                                            android:layout_marginTop="0dp"/>
-
-                                    </LinearLayout>
-
-
-                                </LinearLayout>
-
-
-
-                            </androidx.cardview.widget.CardView>
 
 
 

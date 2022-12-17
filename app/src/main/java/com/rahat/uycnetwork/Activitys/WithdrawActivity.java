@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.rahat.uycnetwork.Modles.Config;
 import com.rahat.uycnetwork.Modles.UserModle;
 import com.rahat.uycnetwork.Modles.WithdrawModle;
 import com.rahat.uycnetwork.R;
@@ -27,15 +29,19 @@ import com.rahat.uycnetwork.databinding.ActivityWithdrawBinding;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 public class WithdrawActivity extends AppCompatActivity {
 
     ActivityWithdrawBinding binding;
     DatabaseReference mRef;
+    DatabaseReference mConfig;
     DatabaseReference mWithdraw;
     FirebaseAuth mAuth;
     UserModle userModle;
+    Config config;
     ProgressDialog progressDialog;
+    String TAG="MyTag";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,26 +53,37 @@ public class WithdrawActivity extends AppCompatActivity {
         progressDialog.show();
         mAuth = FirebaseAuth.getInstance();
         mRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        mConfig = FirebaseDatabase.getInstance().getReference().child("Config");
         mWithdraw = FirebaseDatabase.getInstance().getReference().child("Withdraw");
         inits();
         binding.bnbBtn.setOnClickListener(v -> {
-            if (userModle.getCoin()<=100){
-                Toast.makeText(this, "LOL", Toast.LENGTH_SHORT).show();
-            }else {
+            if (userModle.getCoin()<=config.getMinwithdraw()){
+                Toast.makeText(this, "You Don't have enough coin !", Toast.LENGTH_SHORT).show();
+            }else  {
                 showForgotDialog(WithdrawActivity.this, "BNB");
             }
         });
         binding.uycBtn.setOnClickListener(v -> {
-            showForgotDialog(WithdrawActivity.this, "UYC");
+
+            if (userModle.getCoin()<=config.getMinwithdraw()){
+                Toast.makeText(this, "You Don't have enough coin !", Toast.LENGTH_SHORT).show();
+            }else  {
+                showForgotDialog(WithdrawActivity.this, "UYC");
+            }
+
         });
         binding.usdBtn.setOnClickListener(v -> {
-            showForgotDialog(WithdrawActivity.this, "USD");
+            if (userModle.getCoin()<=config.getMinwithdraw()){
+                Toast.makeText(this, "You Don't have enough coin !", Toast.LENGTH_SHORT).show();
+            }else  {
+                showForgotDialog(WithdrawActivity.this, "USD");
+            }
         });
     }
 
     private void inits() {
         mRef.child(mAuth.getUid())
-                .addListenerForSingleValueEvent(new ValueEventListener() {
+                .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         userModle = snapshot.getValue(UserModle.class);
@@ -79,33 +96,59 @@ public class WithdrawActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                     }
                 });
+        mConfig.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    config=snapshot.getValue(Config.class);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void showForgotDialog(Context c, String method) {
         final EditText taskEditText = new EditText(c);
         AlertDialog dialog = new AlertDialog.Builder(c)
                 .setTitle("Enter Wallet Address")
-                .setMessage("Enter your wallet address")
+                .setMessage("Enter your "+method+" wallet address")
                 .setView(taskEditText)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String task = String.valueOf(taskEditText.getText());
-                        WithdrawModle withdrawModle = new WithdrawModle(userModle.getName(), userModle.getMail(), task, getTime(), "", "pending", method, 100);
-                        mWithdraw.child(mAuth.getUid())
-                                .push()
-                                .setValue(withdrawModle)
+                        double tmpCoin=userModle.getCoin()-config.getMinwithdraw();
+                        HashMap<String ,Object> hashMap=new HashMap<>();
+                        hashMap.put("coin",tmpCoin);
+                        WithdrawModle withdrawModle = new WithdrawModle(userModle.getName(), userModle.getMail(), task, getTime(), "", "pending", method, config.getMinwithdraw());
+                        mRef.child(mAuth.getUid())
+                                .updateChildren(hashMap)
                                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()){
-                                            Toast.makeText(WithdrawActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                                            mWithdraw.child(mAuth.getUid())
+                                                    .push()
+                                                    .setValue(withdrawModle)
+                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<Void> task) {
+                                                            if (task.isSuccessful()){
+                                                                Toast.makeText(WithdrawActivity.this, "Success", Toast.LENGTH_SHORT).show();
 
-                                        }else{
-                                            Toast.makeText(WithdrawActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                                                            }else{
+                                                                Toast.makeText(WithdrawActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
+                                                            }
+                                                        }
+                                                    });
                                         }
                                     }
                                 });
+
                     }
                 })
                 .setNegativeButton("Close", null)
