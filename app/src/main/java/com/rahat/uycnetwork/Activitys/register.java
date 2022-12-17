@@ -114,6 +114,7 @@ public class register extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
+                    progressDialog.dismiss();
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         DeviceIDModel deviceIDModel = dataSnapshot.getValue(DeviceIDModel.class);
                         if (deviceIDModel.getId().equals(getDeviceIMEI(getApplicationContext()))) {
