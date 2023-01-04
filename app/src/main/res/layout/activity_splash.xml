@@ -23,7 +23,7 @@
             android:layout_height="150dp"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="65dp"
             android:scaleType="centerCrop"
             android:src="@drawable/uyccointow" />
 
@@ -34,11 +34,11 @@
             android:layout_below="@id/img"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:fontFamily="serif"
+            android:fontFamily="@font/passero_one"
             android:gravity="center"
             android:text="Welcome To UYC Network"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <TextView
@@ -55,14 +55,14 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/progressBar"
-            android:layout_width="250dp"
-            app:lottie_rawRes="@raw/walking"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            android:layout_height="250dp"
+            android:layout_width="280dp"
+            android:layout_height="280dp"
             android:layout_above="@id/copy"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="10dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/walking" />
 
     </RelativeLayout>
 

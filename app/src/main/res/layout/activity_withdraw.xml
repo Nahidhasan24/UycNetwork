@@ -39,24 +39,29 @@
 
     </androidx.cardview.widget.CardView>
     <LinearLayout
+        android:gravity="center"
         android:layout_below="@+id/topper"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         >
         <HorizontalScrollView
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             >
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 >
-
+// ok
                 <LinearLayout
+                    android:id="@+id/viewHolder"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal"
                     >
 
@@ -103,6 +108,7 @@
 
                                     />
                                 <TextView
+                                    android:id="@+id/usdTV"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -163,6 +169,7 @@
                                     android:padding="5dp"
                                     />
                                 <TextView
+                                    android:id="@+id/bnbTV"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -223,6 +230,7 @@
                                     android:padding="5dp"
                                     />
                                 <TextView
+                                    android:id="@+id/uycTV"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"

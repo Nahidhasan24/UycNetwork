@@ -4,117 +4,117 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.Login"
+    android:background="@drawable/bgtow"
+    android:descendantFocusability="afterDescendants"
     android:orientation="vertical"
-    android:background="@drawable/bgtow">
+    tools:context=".Activitys.Login">
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/uyccointow"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="70dp"
         android:scaleType="centerCrop"
-        />
+        android:src="@drawable/uyccointow" />
+    // font style change koran!!!
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:fontFamily="@font/passero_one"
         android:text="UYC NETWORK"
         android:textColor="#FFFFFF"
-        android:fontFamily="serif"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:layout_gravity="center_horizontal"
-        />
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 
     <EditText
         android:id="@+id/regName"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:textSize="18dp"
-        android:textColorHint="#050505"
-        android:hint="Full name:-"
-        android:textStyle="italic"
-        android:inputType="textPersonName"
-        android:fontFamily="monospace"
-        android:background="@drawable/background_gradiant"
-        android:padding="5dp"
-        android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal"
-        />
+        android:layout_marginTop="30dp"
+        android:background="@drawable/background_gradiant"
+        android:fontFamily="monospace"
+        android:hint="Full name:-"
+        android:inputType="textPersonName"
+        android:padding="5dp"
+        android:textColorHint="#050505"
+        android:textSize="18dp"
+        android:textStyle="italic" />
+
     <EditText
         android:id="@+id/regNumber"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:textSize="18dp"
-        android:textColorHint="#050505"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/background_gradiant"
+        android:fontFamily="monospace"
         android:hint="Number:-"
         android:inputType="text"
-        android:textStyle="italic"
-        android:fontFamily="monospace"
-        android:background="@drawable/background_gradiant"
         android:padding="5dp"
-        android:layout_marginTop="4dp"
-        android:layout_gravity="center_horizontal"
-        />
+        android:textColorHint="#050505"
+        android:textSize="18dp"
+        android:textStyle="italic" />
+
     <EditText
         android:id="@+id/regEmail"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:textSize="18dp"
-        android:textColorHint="#050505"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/background_gradiant"
+        android:fontFamily="monospace"
         android:hint="Email:-"
         android:inputType="textEmailAddress"
-        android:textStyle="italic"
-        android:fontFamily="monospace"
-        android:background="@drawable/background_gradiant"
         android:padding="5dp"
-        android:layout_marginTop="4dp"
-        android:layout_gravity="center_horizontal"
-        />
+        android:textColorHint="#050505"
+        android:textSize="18dp"
+        android:textStyle="italic" />
+
     <EditText
         android:id="@+id/regPassword"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:textSize="18dp"
-        android:textColorHint="#050505"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/background_gradiant"
+        android:fontFamily="monospace"
         android:hint="Password:-"
         android:inputType="number"
-        android:textStyle="italic"
-        android:fontFamily="monospace"
-        android:background="@drawable/background_gradiant"
         android:padding="5dp"
-        android:layout_marginTop="4dp"
-        android:layout_gravity="center_horizontal"
-        />
+        android:textColorHint="#050505"
+        android:textSize="18dp"
+        android:textStyle="italic" />
+
     <EditText
         android:id="@+id/regConPassword"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:textSize="18dp"
-        android:textColorHint="#050505"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/background_gradiant"
+        android:fontFamily="monospace"
         android:hint="Confirm Password:-"
         android:inputType="number"
-        android:textStyle="italic"
-        android:fontFamily="monospace"
-        android:background="@drawable/background_gradiant"
         android:padding="5dp"
-        android:layout_marginTop="4dp"
-        android:layout_gravity="center_horizontal"
-        />
+        android:textColorHint="#050505"
+        android:textSize="18dp"
+        android:textStyle="italic" />
+
     <Button
         android:id="@+id/registerbtn"
-        android:layout_marginTop="30dp"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:text="Register"
-        android:fontFamily="monospace"
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:layout_gravity="center_horizontal"
-        />
+        android:layout_marginTop="30dp"
+        android:fontFamily="monospace"
+        android:text="Register"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

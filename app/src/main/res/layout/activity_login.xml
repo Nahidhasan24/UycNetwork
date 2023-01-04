@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="UYC NETWORK"
         android:textColor="#FFFFFF"
-        android:fontFamily="serif"
+        android:fontFamily="@font/passero_one"
         android:textStyle="bold"
         android:textSize="25sp"
         android:layout_gravity="center_horizontal"
@@ -40,7 +40,7 @@
         android:fontFamily="monospace"
         android:background="@drawable/background_gradiant"
         android:padding="5dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:layout_gravity="center_horizontal"
         />
     <EditText
@@ -50,7 +50,7 @@
         android:textSize="18dp"
         android:textColorHint="#050505"
         android:hint="Password:-"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:textStyle="italic"
         android:fontFamily="monospace"
         android:background="@drawable/background_gradiant"

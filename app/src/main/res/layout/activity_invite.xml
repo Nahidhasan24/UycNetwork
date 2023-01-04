@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgtow"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bgtow">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -31,26 +31,30 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <ImageView
-        android:padding="40dp"
+    // ata animation den aroo darun lagbe
+
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_below="@+id/toolbar2"
+        android:padding="40dp"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/invite" />
+        app:lottie_rawRes="@raw/share"/>
 
     <TextView
         android:id="@+id/fast"
-        android:layout_below="@id/img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Invite And Eran Money"
+        android:layout_below="@id/img"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:text="Invite And Eran Money"
+        android:textColor="#FFEB3B"
         android:textSize="30sp"
-        android:textColor="#9C27B0"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/second"

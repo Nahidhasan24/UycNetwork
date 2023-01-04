@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.rahat.uycnetwork">
+    package="com.motionadsltdns.uycnetwork">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -18,19 +18,19 @@
         android:theme="@style/Theme.UycNetwork"
         tools:targetApi="31">
         <activity
-            android:name=".Activitys.InviteActivity"
+            android:name="com.motionadsltdns.uycnetwork.Activitys.InviteActivity"
             android:exported="false" />
         <activity
-            android:name=".Activitys.WithdrawActivity"
+            android:name="com.motionadsltdns.uycnetwork.Activitys.WithdrawActivity"
             android:exported="false" />
         <activity
-            android:name=".Activitys.AddMoneyActivity"
+            android:name="com.motionadsltdns.uycnetwork.Activitys.AddMoneyActivity"
             android:exported="false" />
         <activity
-            android:name=".Activitys.ComingSoon"
+            android:name="com.motionadsltdns.uycnetwork.Activitys.ComingSoon"
             android:exported="false" />
         <activity
-            android:name=".Activitys.Splash"
+            android:name="com.motionadsltdns.uycnetwork.Activitys.Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,18 +39,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activitys.register"
+            android:name="com.motionadsltdns.uycnetwork.Activitys.register"
             android:exported="false" />
         <activity
-            android:name=".Activitys.Login"
+            android:name="com.motionadsltdns.uycnetwork.Activitys.Login"
             android:exported="false" />
         <activity
-            android:name=".Activitys.MainActivity"
+            android:name="com.motionadsltdns.uycnetwork.Activitys.MainActivity"
             android:exported="false" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
