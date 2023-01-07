@@ -3,9 +3,13 @@ package com.motionadsltdns.uycnetwork.Activitys;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.basusingh.beautifulprogressdialog.BeautifulProgressDialog;
@@ -55,8 +59,55 @@ public class Login extends AppCompatActivity {
         binding.sendRegisterBtn.setOnClickListener(v->{
             startActivity(new Intent(getApplicationContext(),register.class));
         });
+        binding.forgetpassword.setOnClickListener(v->{
+            showDiaload();
+        });
 
     }
+
+    private void showDiaload() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Login.this);
+        alertDialog.setTitle("Enter Mail");
+        alertDialog.setMessage("Enter Mail to Reset Password");
+
+        final EditText input = new EditText(Login.this);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        input.setLayoutParams(lp);
+        alertDialog.setView(input);
+        alertDialog.setIcon(R.drawable.lock);
+
+        alertDialog.setPositiveButton("YES",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        String password = input.getText().toString();
+                        if (password.equals("")){
+                            Toast.makeText(Login.this, "Empty Mail", Toast.LENGTH_SHORT).show();
+                        }else{
+                            mAuth.sendPasswordResetEmail(password)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(Login.this, "Password Change Link Sent on mail.", Toast.LENGTH_SHORT).show();
+                                            dialog.dismiss();
+                                        }
+                                    });
+                        }
+                    }
+                });
+
+        alertDialog.setNegativeButton("NO",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+        alertDialog.show();
+
+    }
+
 
     private void login(String mail, String pass) {
         mAuth.signInWithEmailAndPassword(mail,pass)

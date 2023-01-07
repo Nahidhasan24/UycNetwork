@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.motionadsltdns.uycnetwork.Activitys.ComingSoon;
 import com.motionadsltdns.uycnetwork.Activitys.InviteActivity;
+import com.motionadsltdns.uycnetwork.Activitys.Login;
 import com.motionadsltdns.uycnetwork.Modles.UserModle;
 import com.motionadsltdns.uycnetwork.databinding.FragmentProfileBinding;
 
@@ -63,6 +64,10 @@ public class ProfileFragment extends Fragment {
         });
         binding.Ratingapss.setOnClickListener(v->{
             startActivity(new Intent(getActivity(), ComingSoon.class));
+        });
+        binding.logout.setOnClickListener(v->{
+            mAuth.signOut();
+            startActivity(new Intent(getActivity(), Login.class));
         });
 
         return binding.getRoot();
