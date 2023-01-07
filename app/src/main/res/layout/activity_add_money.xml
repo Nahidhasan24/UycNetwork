@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgtow"
+    android:background="@drawable/uycbgs"
     tools:context=".Activitys.AddMoneyActivity">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
@@ -38,11 +38,14 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/colourtow">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+
+                >
 
                 <TextView
                     android:layout_width="match_parent"
@@ -101,7 +104,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/colourtow">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -186,12 +190,13 @@
 
             <Button
                 android:id="@+id/submitBtn"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="Submit"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_marginTop="20sp"/>
+                android:layout_marginTop="20sp"
+                android:layout_gravity="center"/>
         </LinearLayout>
 
 

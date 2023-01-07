@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg"
+    android:background="@drawable/uycbgs"
     android:gravity="center">
 
-// ata k privacy app rating ai 2 ta activity te den
+    //ata k privacy app rating ai 2 ta activity te den
     <com.airbnb.lottie.LottieAnimationView
 
         android:layout_width="400dp"

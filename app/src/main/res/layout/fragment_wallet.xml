@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bgtow">
+    android:background="@drawable/uycbgs">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -36,7 +36,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
         app:cardCornerRadius="25dp"
-        android:background="@drawable/colourone"
+        android:background="@drawable/back_et"
         android:orientation="vertical"
         >
         <TextView
@@ -168,14 +168,14 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
         app:cardCornerRadius="25dp"
-        android:background="@drawable/colourone"
+        android:background="@drawable/back_et"
         android:orientation="vertical"
         >
         <TextView
             android:id="@+id/datashow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#550707"
+            android:textColor="#501705"
             android:textSize="15sp"
             android:fontFamily="serif"
             android:text="All transaction history"
@@ -203,6 +203,7 @@
         android:id="@+id/adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         ads:adSize="BANNER"

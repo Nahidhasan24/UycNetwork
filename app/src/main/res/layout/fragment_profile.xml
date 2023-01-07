@@ -4,28 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".Activitys.Profile"
     android:orientation="vertical"
-    android:background="@drawable/bgthee">
+    android:background="@drawable/uycbgp">
 
 
-    <ImageView
-        android:id="@+id/profilepic"
-        android:layout_width="50dp"
-        android:layout_height="80dp"
-        android:scaleType="centerCrop"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        />
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="start"
-        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:layout_marginTop="60dp"
         >
         <ImageView
-            android:layout_marginStart="50dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/account"
@@ -36,10 +29,12 @@
             android:id="@+id/profileName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Full Name :-"
             android:textSize="15sp"
-            android:textColor="@color/gray"
+            android:textColor="@color/white"
             android:fontFamily="serif"
             android:layout_gravity="center"
+            android:layout_marginStart="5dp"
             />
 
 
@@ -48,11 +43,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="start"
+        android:gravity="center"
         android:layout_marginTop="2dp"
         >
         <ImageView
-            android:layout_marginStart="50dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/ic_phone"
@@ -63,8 +57,9 @@
             android:id="@+id/profileNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="User Name :-"
             android:textSize="15sp"
-            android:textColor="@color/gray"
+            android:textColor="@color/white"
             android:fontFamily="serif"
             android:layout_gravity="center"
 
@@ -75,12 +70,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="start"
+        android:gravity="center"
         android:layout_marginTop="2dp"
         >
 
         <ImageView
-            android:layout_marginStart="50dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/mail"
@@ -91,8 +85,9 @@
             android:id="@+id/profileEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Email :-"
             android:textSize="15sp"
-            android:textColor="@color/gray"
+            android:textColor="@color/white"
             android:fontFamily="serif"
             android:layout_gravity="center"
             />
@@ -103,43 +98,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
+        android:text="Your Profile &amp; information"
         android:fontFamily="serif"
         android:textStyle="italic"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         />
 
-  // bujlam nah voice sunen ok
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:text="your profile information"
-        android:fontFamily="serif"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-
-        />
-
-    //aii gula midle a na rekhe mone hoy okk
     <LinearLayout
         android:id="@+id/privacy"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:layout_marginStart="20sp"
+        android:layout_margin="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="5dp"
-        android:layout_gravity="start"
-        android:background="@drawable/colourone"
         >
 
         <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="50dp"
             app:lottie_rawRes="@raw/privacy"
             app:lottie_loop="true"
@@ -168,15 +146,12 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:layout_marginStart="20sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        android:layout_gravity="start"
-        android:background="@drawable/colourone"
+        android:layout_margin="10dp"
+
         >
 
         <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="50dp"
             app:lottie_rawRes="@raw/rateapps"
             app:lottie_loop="true"
@@ -198,22 +173,19 @@
             android:layout_marginStart="10dp"
 
             />
-//ok??
+
     </LinearLayout>
     <LinearLayout
         android:id="@+id/invitedFriendBtn"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_gravity="start"
         android:orientation="horizontal"
-        android:layout_marginStart="20sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        android:background="@drawable/colourone"
+        android:layout_margin="10dp"
+
         >
 
         <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="50dp"
             app:lottie_rawRes="@raw/share"
             app:lottie_loop="true"
@@ -232,7 +204,7 @@
             android:fontFamily="serif"
             android:textStyle="bold"
             android:layout_gravity="center"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="0dp"
 
             />
 
@@ -242,35 +214,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20sp"
+
+        android:layout_margin="5dp"
         android:gravity="center"
         >
 
         <LinearLayout
             android:id="@+id/youtubeBtn"
-            android:layout_width="110dp"
+            android:layout_width="120dp"
             android:layout_height="50dp"
             android:orientation="horizontal"
             android:layout_margin="10dp"
-            android:background="@drawable/colourone"
+
             android:layout_marginTop="5dp"
             >
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:layout_height="50dp"
                 app:lottie_rawRes="@raw/youtube"
                 app:lottie_loop="true"
                 app:lottie_autoPlay="true"
                 android:padding="2dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="5dp"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="10sp"
                 android:text="Youtube"
                 android:fontFamily="serif"
@@ -283,64 +256,64 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/telegramBtn"
-            android:layout_width="110dp"
+            android:layout_width="120dp"
             android:layout_height="50dp"
             android:orientation="horizontal"
             android:layout_margin="10dp"
-            android:background="@drawable/colourone"
+
             >
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:layout_height="50dp"
                 app:lottie_rawRes="@raw/telegram"
                 app:lottie_loop="true"
                 app:lottie_autoPlay="true"
                 android:padding="2dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="2dp"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="10sp"
                 android:text="Telegram"
                 android:fontFamily="serif"
                 android:textStyle="bold"
                 android:layout_gravity="center"
-                android:layout_marginStart="0dp"
+                android:layout_marginStart="5dp"
 
                 />
 
         </LinearLayout>
         <LinearLayout
             android:id="@+id/facebookBtn"
-            android:layout_width="110dp"
+            android:layout_width="120dp"
             android:layout_height="50dp"
             android:orientation="horizontal"
             android:layout_margin="10dp"
-            android:background="@drawable/colourone"
+
             >
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:layout_height="50dp"
-                app:lottie_rawRes="@raw/twitter"
+                app:lottie_rawRes="@raw/facebook"
                 app:lottie_loop="true"
                 app:lottie_autoPlay="true"
                 android:padding="2dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="2dp"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="10sp"
-                android:text="Twitter"
+                android:text="Facebook"
                 android:fontFamily="serif"
                 android:textStyle="bold"
                 android:layout_gravity="center"
@@ -354,21 +327,17 @@
     </LinearLayout>
 
 
-  <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      >
-      <com.google.android.gms.ads.AdView
-          xmlns:ads="http://schemas.android.com/apk/res-auto"
-          android:id="@+id/adView"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_centerHorizontal="true"
-          android:layout_alignParentBottom="true"
-          ads:adSize="BANNER"
-          ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
-      </com.google.android.gms.ads.AdView>
-  </RelativeLayout>
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+    </com.google.android.gms.ads.AdView>
 
 
 

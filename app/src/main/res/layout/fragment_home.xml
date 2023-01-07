@@ -5,18 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bgtow">
+    android:background="@drawable/uycbgs">
 
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
-        </LinearLayout>
-    </androidx.appcompat.widget.Toolbar>
 
 
     <ScrollView
@@ -30,33 +21,20 @@
             android:gravity="center"
             >
 
-
-
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:layout_marginStart="20sp"
                 android:layout_marginEnd="20sp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="35dp"
                 android:layout_marginBottom="10dp"
-                app:cardCornerRadius="15dp">
-
-                <com.denzcoskun.imageslider.ImageSlider
-                    android:id="@+id/image_slider"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:iss_auto_cycle="true"
-                    app:iss_period="1000"
-                    app:iss_delay="0"/>
-
-
-            </androidx.cardview.widget.CardView>
+                app:cardCornerRadius="15dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="sans-serif"
                 android:text="Our All Plans"
                 android:textColor="@color/white"
                 android:textSize="20sp"
@@ -76,19 +54,15 @@
 
                 </androidx.recyclerview.widget.RecyclerView>
 
-
-
-
             </LinearLayout>
 
             <LinearLayout
-                android:layout_gravity="center"
-                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="3"
                 android:layout_marginTop="10dp"
+                android:gravity="center"
                 >
 
                 <LinearLayout
@@ -108,7 +82,7 @@
                         />
 
                 </LinearLayout>
-// aii gula arektu kacha kachi kore de
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_weight="0.5"
@@ -156,7 +130,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:textColor="@color/gray"
+                    android:textColor="#ffffff"
                     android:fontFamily="sans-serif-black"
                     android:text="00 : 00 : 00"
                     android:layout_marginStart="10dp"
@@ -165,29 +139,24 @@
 
 
             </LinearLayout>
-            <RelativeLayout
+            <com.google.android.gms.ads.AdView
+                android:layout_gravity="center"
+                android:layout_marginTop="90dp"
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
-                <com.google.android.gms.ads.AdView
-                    android:layout_marginTop="50dp"
-                    xmlns:ads="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/adView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_alignParentBottom="true"
-                    ads:adSize="BANNER"
-                    ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
-                </com.google.android.gms.ads.AdView>
-            </RelativeLayout>
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/banner_admob">
+            </com.google.android.gms.ads.AdView>
 
 
         </LinearLayout>
 
 
     </ScrollView>
-
 
 
 

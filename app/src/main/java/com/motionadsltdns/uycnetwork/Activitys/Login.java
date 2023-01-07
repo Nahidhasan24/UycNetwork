@@ -55,6 +55,7 @@ public class Login extends AppCompatActivity {
         binding.sendRegisterBtn.setOnClickListener(v->{
             startActivity(new Intent(getApplicationContext(),register.class));
         });
+
     }
 
     private void login(String mail, String pass) {

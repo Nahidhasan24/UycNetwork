@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgtow"
+    android:background="@drawable/uycbgh"
     tools:context=".Activitys.WithdrawActivity">
 
     <androidx.cardview.widget.CardView
@@ -15,7 +15,7 @@
         android:backgroundTint="@android:color/transparent"
         android:layout_margin="10dp">
         <LinearLayout
-            android:background="@drawable/colourone"
+            android:background="@drawable/background_gradiant"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -44,6 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+
         >
         <HorizontalScrollView
 
@@ -75,7 +76,7 @@
                         android:layout_height="120dp">
                         <LinearLayout
                             android:id="@+id/usdBtn"
-                            android:background="@color/white"
+                            android:background="@drawable/colourtow"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
@@ -83,7 +84,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="60dp"
-                                android:background="@drawable/planfour"
+                                android:background="@drawable/uyccointow"
                                 android:scaleType="centerCrop"
                                 />
                             <LinearLayout
@@ -137,7 +138,7 @@
                         android:layout_height="120dp">
                         <LinearLayout
                             android:id="@+id/bnbBtn"
-                            android:background="@color/white"
+                            android:background="@drawable/colourtow"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
@@ -145,7 +146,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="60dp"
-                                android:background="@drawable/planone"
+                                android:background="@drawable/uyccointow"
                                 android:scaleType="centerCrop"
                                 />
                             <LinearLayout
@@ -198,7 +199,7 @@
                         android:layout_height="120dp">
                         <LinearLayout
                             android:id="@+id/uycBtn"
-                            android:background="@color/white"
+                            android:background="@drawable/colourtow"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
@@ -206,7 +207,7 @@
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="60dp"
-                                android:background="@drawable/plamtow"
+                                android:background="@drawable/uyccointow"
                                 android:scaleType="centerCrop"
                                 />
                             <LinearLayout

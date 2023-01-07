@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/bgtow">
+    android:background="@drawable/uycbgs"
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -31,30 +31,26 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    // ata animation den aroo darun lagbe
-
-    <com.airbnb.lottie.LottieAnimationView
+    <ImageView
+        android:padding="40dp"
         android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_below="@+id/toolbar2"
-        android:padding="40dp"
-        app:lottie_loop="true"
-        app:lottie_autoPlay="true"
         android:scaleType="centerCrop"
-        app:lottie_rawRes="@raw/share"/>
+        android:src="@drawable/invite" />
 
     <TextView
         android:id="@+id/fast"
+        android:layout_below="@id/img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/img"
+        android:text="Invite And Eran Money"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Invite And Eran Money"
-        android:textColor="#FFEB3B"
         android:textSize="30sp"
-        android:textStyle="bold" />
+        android:textColor="#FBC02D"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/second"
@@ -65,7 +61,7 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="For Invite A New User Your Well \n Be Earn Extra Coin "
-        android:textColor="#E2E2E2"
+        android:textColor="#04FBC1"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -81,7 +77,7 @@
         android:background="@drawable/text_bg"
         android:gravity="center"
         android:padding="10dp"
-        android:textColor="#FFC107"
+        android:textColor="#EDB406"
         android:textSize="30dp"
         android:textStyle="bold" />
 
